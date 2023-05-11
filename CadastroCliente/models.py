@@ -6,7 +6,7 @@ class Profissao(models.Model):
     name = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.nome
+        return self.name
     
     class Meta:
         verbose_name_plural = "Profissoes"
