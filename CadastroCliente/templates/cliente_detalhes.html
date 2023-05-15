@@ -8,20 +8,49 @@
 </head>
 <body>
     <h1>{{cliente.nome}}</h1>
-    <table borde="1">
+    <table border="1">
         <tr>
             <td>Nome:</td>
             <td>{{cliente.nome}}</td>
         </tr>
         <tr>
-            <td>{{cliente.data_nascimento}}</td>
+            <td>{{cliente.data_nascimento | date:"/d/m/Y"}}</td>
             <td>10/04/1998</td>
         </tr>
         <tr>
             <td>Endereço:</td>
-            <td>Av. Marechal 1500</td>
+            <td>{{cliente.endereco}},{{cliente.nro}} - {{cliente.bairro}} - {{cliente.cidade}}</td>
         </tr>
-
+        <tr>
+            <td>CPF:</td>
+            <td>{{cliente.cpf}}</td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td>{{cliente.email}}</td>
+        </tr>
+        <tr>
+            <td>Matricula:</td>
+            <td>{{cliente.matricula}}</td>
+        <tr>
+            <td>Estado Civil</td>
+            <td>{{cliente.get_estado_civil_display}}</td>
+        <tr>
+            <td>Profissão:</td>
+            <td>{{cliente.profisao}}</td>
+        </tr>
+        <tr>
+            <td>Interesses:</td>
+            <td>{{cliente.interesses.all|join:", "}}</td>
+        </tr>
+        <tr>
+            <td>Telefones:</td>
+            <td>
+                {% for tel in telefones%}
+                    ({{ tel.ddd }}) {{ tel.numero }} <br>
+                {% endfor %}
+            </td>
+        </tr>
     </table>
 </body>
 </html>
