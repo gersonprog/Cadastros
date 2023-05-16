@@ -30,7 +30,7 @@ class Cliente(models.Model):
     data_nascimento = models.DateField()
     email = models.EmailField(max_length=256)
     endereco = models.CharField(max_length=250, null=True, verbose_name='endereco')
-    numero = models.IntegerField(null=True)
+    numero = models.IntegerField(null=True, verbose_name='numero')
     bairro = models.CharField(max_length=50, null=True)
     cidade = models.CharField(max_length=50, null=True)
     cep = models.CharField(max_length=9, null=True)
